@@ -1,0 +1,8 @@
+<div class="row">
+    <ul>
+        <li *ngFor="let company of historicalQueries" (click) = "onSelectHistoryItem(company.queryValue)">{{ company.queryValue }} </li>
+    </ul>
+</div>
+
+
+

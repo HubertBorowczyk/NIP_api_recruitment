@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: block;
+    padding: 5px 10px;
+    background-color: cornsilk;
+    border: 1px solid blanchedalmond;
+    margin: 3px 0;
+}
+
+li:hover {
+    background-color: antiquewhite;
+}
+

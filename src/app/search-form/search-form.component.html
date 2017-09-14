@@ -1,0 +1,81 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" validate class="searchForm">
+    <div class="radio-container">
+        <div class="radio">
+            <input id="radio-nip"
+                   name="queryParam"
+                   type="radio"
+                   value="nip"
+                   [(ngModel)]="queryParam"
+                   #param="ngModel"
+                   checked>
+            <label for="radio-nip" class="radio-label">NIP</label>
+        </div>
+        <div class="radio">
+            <input id="radio-regon"
+                   name="queryParam"
+                   type="radio"
+                   [(ngModel)]="queryParam"
+                   #param="ngModel"
+                   value="regon">
+            <label for="radio-regon" class="radio-label">REGON</label>
+        </div>
+        <div class="radio">
+            <input id="radio-krs"
+                   name="queryParam"
+                   type="radio"
+                   [(ngModel)]="queryParam"
+                   #param="ngModel"
+                   value="krs">
+            <label for="radio-krs" class="radio-label">KRS</label>
+        </div>
+    </div>
+    <div id="search" [ngClass]="{loading: showLoader}">
+        <input id="input"
+               type="text"
+               placeholder="Szukaj firmy..."
+               name="queryValue"
+               [(ngModel)]="queryValue"
+               #value="ngModel"
+               required
+               autocomplete="off"/>
+        <button id="button" type="submit"><i class="fa fa-search"></i></button>
+        <div class="spinner"><i class="fa fa-spinner"></i></div>
+    </div>
+</form>
+<table>
+    <tr *ngFor="let key of objKeys(company)">
+        <td class="keys">{{key}}</td>
+        <td class="values"><input type="text" class="form-control" size="100%" value="{{company[key]}}" disabled>
+        </td>
+    </tr>
+</table>
+
+
+<!--<div *ngIf="value.invalid && (value.dirty || value.touched)"-->
+<!--class="alert alert-danger">-->
+<!--<div *ngIf="value.errors.required">-->
+<!--Name is required.-->
+<!--</div>-->
+<!--<div *ngIf="value.errors.minlength">-->
+<!--Name must be at least 10 characters long.-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="loader-outer" *ngIf="this.showLoader">
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="roller"></div>
+            <div class="roller"></div>
+        </div>
+
+        <div id="loader2" class="loader">
+            <div class="roller"></div>
+            <div class="roller"></div>
+        </div>
+
+        <div id="loader3" class="loader">
+            <div class="roller"></div>
+            <div class="roller"></div>
+        </div>
+    </div>
+</div>
